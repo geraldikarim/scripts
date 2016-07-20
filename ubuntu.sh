@@ -1,3 +1,5 @@
+#!/bin/sh
+
 # Set up ...
 
 alias install="sudo apt-get install -y"
@@ -62,6 +64,11 @@ function install_deb() {
     sudo apt-get -f  install
 }
 
+## Install tlp
+sudo add-apt-repository -y ppa:linrunner/tlp
+sudo apt-get update
+install tlp
+
 ## Install indicators
 install indicator-multiload indicator-cpufreq
 
@@ -99,7 +106,10 @@ cd ~
 
 install nfs-kernel-server
 
-## Others
+
+
+
+# Others
 
 function echo_if_not_exist() {
     file=$1
@@ -119,6 +129,9 @@ echo_if_not_exist ~/.zshrc "alias hom='function __homestead() { (cd ~/Homestead 
 echo_if_not_exist ~/.zshrc "alias art='php artisan'"
 
 source ~/.zshrc
+
+
+
 
 # Cleanup...
 
