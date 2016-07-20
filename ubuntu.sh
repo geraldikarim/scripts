@@ -20,6 +20,9 @@ install zsh
 sudo chsh -s $(which zsh) $(whoami)
 sh -c "$(curl -fL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
+## Install htop
+install htop
+
 ## Install git
 install git gitk 
 
