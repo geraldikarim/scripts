@@ -33,7 +33,8 @@ install vim
 sudo add-apt-repository -y ppa:ondrej/php
 
 install php7.0-cli php7.0-dev php-mbstring \
-        php-mysql php-pgsql php-sqlite3
+        php-mysql php-pgsql php-sqlite3 \
+        php-gd
 
 curl -fL https://getcomposer.org/installer | php
 mv composer.phar /usr/local/bin/composer
