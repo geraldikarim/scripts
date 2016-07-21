@@ -24,7 +24,7 @@ sh -c "$(curl -fL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/ins
 install htop
 
 ## Install git
-install git gitk 
+install git gitk
 
 ## Install vim
 install vim
