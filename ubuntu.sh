@@ -67,7 +67,7 @@ gem install rails --no-rdoc --no-ri
 function install_deb() {
     curl -fL $2 > /tmp/$1.deb
     sudo dpkg -i /tmp/$1.deb
-    sudo apt-get -f  install
+    sudo apt-get -f install
 }
 
 ## Install tlp
@@ -97,7 +97,7 @@ composer global require phpcs/phpcs
 install_deb vstudio http://www.valentina-db.com/en/studio/download/current/vstudio_x64_lin-deb
 
 ## Install virtualbox
-install virtualbox
+install virtualbox virtualbox-guest-additions-iso
 
 ## Install vagrant
 curl -fL https://releases.hashicorp.com/vagrant/1.8.5/vagrant_1.8.5_x86_64.deb > /tmp/vagrant.deb
@@ -109,8 +109,6 @@ git clone https://github.com/laravel/homestead ~/Homestead
 cd ~/Homestead
 bash init.sh
 cd ~
-
-install nfs-kernel-server
 
 
 
