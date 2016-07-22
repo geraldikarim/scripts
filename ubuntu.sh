@@ -33,7 +33,7 @@ sudo apt-get install -y php7.0-cli php7.0-dev php-mbstring \
 
 ## Install composer
 curl -fL https://getcomposer.org/installer | php
-mv composer.phar /usr/local/bin/composer
+sudo mv composer.phar /usr/local/bin/composer
 
 printf "\nPATH=\"$(composer config -g home 2>/dev/null)/vendor/bin:\$PATH\"\n" | tee -a ~/.profile
 source ~/.profile
@@ -50,7 +50,7 @@ bash /tmp/npm-g-nosudo.sh
 ## Install ruby
 gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
 curl -fL https://get.rvm.io | bash -s stable --ruby
-source /home/geraldi/.rvm/scripts/rvm
+source ~/.rvm/scripts/rvm
 # gem install rails --no-rdoc --no-ri
 
 
