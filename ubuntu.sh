@@ -74,17 +74,17 @@ sudo apt-get install -y variety variety-slideshow
 ## Install dropbox
 curl -fL https://www.dropbox.com/download?dl=packages/ubuntu/dropbox_2015.10.28_amd64.deb > /tmp/dropbox.deb
 sudo dpkg -i /tmp/dropbox.deb
-sudo apt-get -f install
+sudo apt-get -yf install
 
 ## Install sublime text
 curl -fL https://download.sublimetext.com/sublime-text_build-3083_amd64.deb > /tmp/sublime.deb
 sudo dpkg -i /tmp/sublime.deb
-sudo apt-get -f install
+sudo apt-get -yf install
 
 ## Install valentina studio
 curl -fL http://www.valentina-db.com/en/studio/download/current/vstudio_x64_lin-deb > /tmp/vstudio.deb
 sudo dpkg -i /tmp/vstudio.deb
-sudo apt-get -f install
+sudo apt-get -yf install
 
 ## Install virtualbox
 sudo apt-get install -y virtualbox
@@ -92,7 +92,7 @@ sudo apt-get install -y virtualbox
 ## Install vagrant
 curl -fL https://releases.hashicorp.com/vagrant/1.8.5/vagrant_1.8.5_x86_64.deb > /tmp/vagrant.deb
 sudo dpkg -i /tmp/vagrant.deb
-sudo apt-get -f install
+sudo apt-get -yf install
 
 ## Install laravel/homestead
 git clone https://github.com/laravel/homestead ~/Homestead
