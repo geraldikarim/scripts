@@ -58,12 +58,6 @@ source ~/.rvm/scripts/rvm
 
 # Desktop part...
 
-function install_deb() {
-    curl -fL $2 > /tmp/$1.deb
-    sudo dpkg -i /tmp/$1.deb
-    sudo apt-get -f install
-}
-
 ## Install tlp
 sudo add-apt-repository -y ppa:linrunner/tlp
 sudo apt-get update
@@ -78,13 +72,19 @@ sudo apt-get update
 sudo apt-get install -y variety variety-slideshow
 
 ## Install dropbox
-install_deb dropbox https://www.dropbox.com/download?dl=packages/ubuntu/dropbox_2015.10.28_amd64.deb
+curl -fL https://www.dropbox.com/download?dl=packages/ubuntu/dropbox_2015.10.28_amd64.deb > /tmp/dropbox.deb
+sudo dpkg -i /tmp/dropbox.deb
+sudo apt-get -f install
 
 ## Install sublime text
-install_deb sublime https://download.sublimetext.com/sublime-text_build-3083_amd64.deb
+curl -fL https://download.sublimetext.com/sublime-text_build-3083_amd64.deb > /tmp/sublime.deb
+sudo dpkg -i /tmp/sublime.deb
+sudo apt-get -f install
 
 ## Install valentina studio
-install_deb vstudio http://www.valentina-db.com/en/studio/download/current/vstudio_x64_lin-deb
+curl -fL http://www.valentina-db.com/en/studio/download/current/vstudio_x64_lin-deb > /tmp/vstudio.deb
+sudo dpkg -i /tmp/vstudio.deb
+sudo apt-get -f install
 
 ## Install virtualbox
 sudo apt-get install -y virtualbox
@@ -99,27 +99,3 @@ git clone https://github.com/laravel/homestead ~/Homestead
 cd ~/Homestead
 bash init.sh
 cd ~
-
-
-
-
-# Others
-
-# function echo_if_not_exist() {
-#     file=$1
-#     line=$2
-#     grep --quiet --fixed-strings 'include "$line"' "$file" || echo "$line" >> "$file"
-# }
-
-# echo_if_not_exist ~/.zshrc "alias zshconfig='vim ~/.zshrc'"
-# echo_if_not_exist ~/.zshrc "alias zshsource='source ~/.zshrc'"
-
-# echo_if_not_exist ~/.zshrc "alias upgrade='sudo apt-get update && sudo apt-get upgrade -y && sudo apt-get auto-remove -y'"
-# echo_if_not_exist ~/.zshrc "alias install='sudo apt-get install -y'"
-# echo_if_not_exist ~/.zshrc "alias remove='sudo apt-get remove -y'"
-# echo_if_not_exist ~/.zshrc "alias purge='sudo apt-get purge -y'"
-
-# echo_if_not_exist ~/.zshrc "alias hom='function __homestead() { (cd ~/Homestead && vagrant $*); unset -f __homestead; }; __homestead'"
-# echo_if_not_exist ~/.zshrc "alias art='php artisan'"
-
-# source ~/.zshrc
