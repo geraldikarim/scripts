@@ -26,9 +26,7 @@ sudo apt-get install -y gitk
 
 ## Install php
 sudo add-apt-repository -y ppa:ondrej/php
-
 sudo apt-get update
-
 sudo apt-get install -y php7.0-cli php7.0-dev php-mbstring \
                         php-mysql php-pgsql php-sqlite3 \
                         php7.0-mcrypt php-gd
