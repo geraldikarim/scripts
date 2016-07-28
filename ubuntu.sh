@@ -88,9 +88,3 @@ sudo apt-get install -y virtualbox
 curl -fL https://releases.hashicorp.com/vagrant/1.8.5/vagrant_1.8.5_x86_64.deb > /tmp/vagrant.deb
 sudo dpkg -i /tmp/vagrant.deb
 sudo apt-get -yf install
-
-## Install laravel/homestead
-git clone https://github.com/laravel/homestead ~/Homestead
-cd ~/Homestead
-bash init.sh
-cd ~
