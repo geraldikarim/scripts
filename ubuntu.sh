@@ -6,7 +6,7 @@ sudo apt-get update
 
 sudo apt-get upgrade -y
 
-sudo apt-get install -y vim curl software-properties-common
+sudo apt-get install -y git vim curl software-properties-common
 
 
 
@@ -21,8 +21,8 @@ sh -c "$(curl -fL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/ins
 ## Install htop
 sudo apt-get install -y htop
 
-## Install git
-sudo apt-get install -y git gitk
+## Install gitk
+sudo apt-get install -y gitk
 
 ## Install php
 sudo add-apt-repository -y ppa:ondrej/php
