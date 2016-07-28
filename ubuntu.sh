@@ -37,9 +37,6 @@ sudo apt-get install -y php7.0-cli php7.0-dev php-mbstring \
 curl -fL https://getcomposer.org/installer | php
 sudo mv composer.phar /usr/local/bin/composer
 
-printf "\nPATH=\"$(composer config -g home 2>/dev/null)/vendor/bin:\$PATH\"\n" | tee -a ~/.profile
-source ~/.profile
-
 ## Install npm
 curl -fL https://deb.nodesource.com/setup_6.x | sudo bash -
 sudo apt-get install -y nodejs
