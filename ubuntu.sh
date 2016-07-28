@@ -38,7 +38,8 @@ curl -fL https://getcomposer.org/installer | php
 sudo mv composer.phar /usr/local/bin/composer
 
 ## Install npm
-curl -fL https://deb.nodesource.com/setup_6.x | sudo bash -
+curl -fL https://deb.nodesource.com/setup_6.x > /tmp/node.sh
+sudo bash /tmp/node.sh
 sudo apt-get install -y nodejs
 
 curl -fL https://raw.githubusercontent.com/glenpike/npm-g_nosudo/master/npm-g-nosudo.sh > /tmp/npm-g-nosudo.sh
