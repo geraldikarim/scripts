@@ -48,6 +48,11 @@ gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB8
 curl -fL https://get.rvm.io | bash -s stable --ruby
 source ~/.rvm/scripts/rvm
 
+## Install Oracle Java
+sudo apt-add-repository -y ppa:webupd8team/java
+sudo apt-get update
+sudo apt-get install -y oracle-java8-installer
+
 
 
 
