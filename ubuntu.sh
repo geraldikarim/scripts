@@ -56,6 +56,8 @@ sudo apt-get install -y oracle-java8-installer
 ## Install nmap
 sudo apt-get install -y nmap
 
+## Install nfs
+sudo apt-get install -y nfs-common nfs-kernel-server
 
 
 # Desktop part...
