@@ -1,17 +1,8 @@
 #!/usr/bin/env bash
 
-# Set up ...
-
-sudo apt-get update
-
-sudo apt-get upgrade -y
-
+# Set up...
 sudo apt-get install -y git vim curl software-properties-common
 
-
-
-
-# Server Part...
 
 ## Install zsh
 sudo apt-get install -y zsh
@@ -27,9 +18,9 @@ sudo apt-get install -y gitk
 ## Install php
 sudo add-apt-repository -y ppa:ondrej/php
 sudo apt-get update
-sudo apt-get install -y php7.0-cli php7.0-dev php-mbstring \
-                        php-mysql php-pgsql php-sqlite3 \
-                        php7.0-mcrypt php-gd
+sudo apt-get install -y php7.0-cli php7.0-dev php-mbstring
+sudo apt-get install -y php-mysql php-pgsql php-sqlite3
+sudo apt-get install -y php7.0-mcrypt php-gd
 
 ## Install composer
 curl -fL https://getcomposer.org/installer | php
@@ -48,10 +39,8 @@ gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB8
 curl -fL https://get.rvm.io | bash -s stable --ruby
 source ~/.rvm/scripts/rvm
 
-## Install Oracle Java
-sudo apt-add-repository -y ppa:webupd8team/java
-sudo apt-get update
-sudo apt-get install -y oracle-java8-installer
+## Install JRE and JDK
+sudo apt-get install -y default-jre default-jdk
 
 ## Install nmap
 sudo apt-get install -y nmap
@@ -62,44 +51,55 @@ sudo apt-get install -y nfs-common nfs-kernel-server
 
 # Desktop part...
 
-## Install tlp
+## Install TLP
 sudo add-apt-repository -y ppa:linrunner/tlp
 sudo apt-get update
 sudo apt-get install -y tlp
 
 ## Install indicators
 sudo apt-get install -y indicator-multiload indicator-cpufreq
+sudo add-apt-repository -y ppa:vlijm/spaceview
+sudo apt update
+sudo apt install -y spaceview
 
-## Install variety
+## Install Variety
 sudo add-apt-repository -y ppa:peterlevi/ppa
 sudo apt-get update
 sudo apt-get install -y variety variety-slideshow
 
-## Install dropbox
-curl -fL https://www.dropbox.com/download?dl=packages/ubuntu/dropbox_2015.10.28_amd64.deb > /tmp/dropbox.deb
-sudo dpkg -i /tmp/dropbox.deb
-sudo apt-get -yf install
-
-## Install sublime text
+## Install Sublime Text
 curl -fL https://download.sublimetext.com/sublime-text_build-3083_amd64.deb > /tmp/sublime.deb
 sudo dpkg -i /tmp/sublime.deb
 sudo apt-get -yf install
 
-## Install valentina studio
+## Install Valentina Studio
 curl -fL http://www.valentina-db.com/en/studio/download/current/vstudio_x64_lin-deb > /tmp/vstudio.deb
 sudo dpkg -i /tmp/vstudio.deb
 sudo apt-get -yf install
 
-## Install virtualbox
+## Install Virtualbox
 sudo apt-get install -y virtualbox
 
-## Install vagrant
-curl -fL https://releases.hashicorp.com/vagrant/1.8.5/vagrant_1.8.5_x86_64.deb > /tmp/vagrant.deb
+## Install Vagrant
+curl -fL https://releases.hashicorp.com/vagrant/1.9.0/vagrant_1.9.0_x86_64.deb > /tmp/vagrant.deb
 sudo dpkg -i /tmp/vagrant.deb
 sudo apt-get -yf install
 
-## Install spotify
+## Install Spotify
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys BBEBDCB318AD50EC6865090613B00F1FD2C19886
 echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list
 sudo apt-get update
-sudo apt-get install spotify-client
+sudo apt-get install -y spotify-client
+
+## Install Unity Tweak Tool
+sudo apt-get install -y unity-tweak-tool
+
+## Install Gparted
+sudo apt-get install -y gparted
+
+
+# Finishing up...
+sudo apt-get update
+sudo apt-get -y dist-upgrade
+sudo apt-get -y autoremove
+sudo apt-get -y autoclean
