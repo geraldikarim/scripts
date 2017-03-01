@@ -90,11 +90,6 @@ curl -sSL https://download.sublimetext.com/sublime-text_build-3126_amd64.deb > /
 sudo dpkg -i /tmp/sublime.deb
 sudo apt-get -yf install
 
-## Install Valentina Studio
-curl -sSL http://www.valentina-db.com/en/studio/download/current/vstudio_x64_lin-deb > /tmp/vstudio.deb
-sudo dpkg -i /tmp/vstudio.deb
-sudo apt-get -yf install
-
 ## Install Virtualbox
 sudo apt-get install -y virtualbox
 
@@ -102,12 +97,6 @@ sudo apt-get install -y virtualbox
 curl -sSL https://releases.hashicorp.com/vagrant/1.9.2/vagrant_1.9.2_x86_64.deb > /tmp/vagrant.deb
 sudo dpkg -i /tmp/vagrant.deb
 sudo apt-get -yf install
-
-## Install Spotify
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys BBEBDCB318AD50EC6865090613B00F1FD2C19886
-echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list
-sudo apt-get update
-sudo apt-get install -y spotify-client
 
 ## Install Unity Tweak Tool
 sudo apt-get install -y unity-tweak-tool
