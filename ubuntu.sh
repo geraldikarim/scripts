@@ -1,13 +1,19 @@
 #!/usr/bin/env bash
 
 # Set up...
-sudo apt-get install -y git vim curl software-properties-common
 
+
+## Install Some Basic Packages
+sudo apt-get install -y curl software-properties-common
+sudo apt-get install -y build-essential dos2unix gcc git libmcrypt4 libpcre3-dev ntp unzip \
+make python2.7-dev python-pip re2c supervisor unattended-upgrades whois vim libnotify-bin
+echo "LC_ALL=en_US.UTF-8" >> /etc/default/locale
+locale-gen en_US.UTF-8
 
 ## Install zsh
 sudo apt-get install -y zsh
 sudo chsh -s $(which zsh) $(whoami)
-sh -c "$(curl -fL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+sh -c "$(curl -sSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 ## Install htop
 sudo apt-get install -y htop
@@ -18,25 +24,37 @@ sudo apt-get install -y gitk
 ## Install php
 sudo add-apt-repository -y ppa:ondrej/php
 sudo apt-get update
-sudo apt-get install -y php7.0-cli php7.0-dev php-mbstring
-sudo apt-get install -y php-mysql php-pgsql php-sqlite3
-sudo apt-get install -y php7.0-mcrypt php-gd
+sudo apt-get install -y --force-yes php7.1-cli php7.1-dev \
+php7.1-pgsql php7.1-sqlite3 php7.1-gd \
+php7.1-curl php7.1-memcached \
+php7.1-imap php7.1-mysql php7.1-mbstring \
+php7.1-xml php7.1-zip php7.1-bcmath php7.1-soap \
+php7.1-intl php7.1-readline php-xdebug
 
 ## Install composer
-curl -fL https://getcomposer.org/installer | php
+curl -sSL https://getcomposer.org/installer | php
 sudo mv composer.phar /usr/local/bin/composer
+printf "\nPATH=\"$(sudo su - geraldi -c 'composer config -g home 2>/dev/null')/vendor/bin:\$PATH\"\n" | tee -a /home/geraldi/.profile
+sudo su geraldi <<'EOF'
+/usr/local/bin/composer global require "laravel/installer"
+EOF
 
 ## Install npm
-curl -fL https://deb.nodesource.com/setup_6.x > /tmp/node.sh
-sudo bash /tmp/node.sh
+curl -sSL https://deb.nodesource.com/setup_6.x | sudo bash -
 sudo apt-get install -y nodejs
+/usr/bin/npm install -g gulp
+/usr/bin/npm install -g bower
+/usr/bin/npm install -g yarn
+/usr/bin/npm install -g grunt-cli
 
-curl -fL https://raw.githubusercontent.com/glenpike/npm-g_nosudo/master/npm-g-nosudo.sh > /tmp/npm-g-nosudo.sh
-bash /tmp/npm-g-nosudo.sh
+curl --silent --location https://raw.githubusercontent.com/glenpike/npm-g_nosudo/master/npm-g-nosudo.sh | bash -
+
+## Install sqlite
+apt-get install -y sqlite3 libsqlite3-dev
 
 ## Install ruby
 gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
-curl -fL https://get.rvm.io | bash -s stable --ruby
+curl -sSL https://get.rvm.io | bash -s stable --ruby
 source ~/.rvm/scripts/rvm
 
 ## Install JRE and JDK
@@ -68,12 +86,12 @@ sudo apt-get update
 sudo apt-get install -y variety variety-slideshow
 
 ## Install Sublime Text
-curl -fL https://download.sublimetext.com/sublime-text_build-3083_amd64.deb > /tmp/sublime.deb
+curl -sSL https://download.sublimetext.com/sublime-text_build-3126_amd64.deb > /tmp/sublime.deb
 sudo dpkg -i /tmp/sublime.deb
 sudo apt-get -yf install
 
 ## Install Valentina Studio
-curl -fL http://www.valentina-db.com/en/studio/download/current/vstudio_x64_lin-deb > /tmp/vstudio.deb
+curl -sSL http://www.valentina-db.com/en/studio/download/current/vstudio_x64_lin-deb > /tmp/vstudio.deb
 sudo dpkg -i /tmp/vstudio.deb
 sudo apt-get -yf install
 
@@ -81,7 +99,7 @@ sudo apt-get -yf install
 sudo apt-get install -y virtualbox
 
 ## Install Vagrant
-curl -fL https://releases.hashicorp.com/vagrant/1.9.0/vagrant_1.9.0_x86_64.deb > /tmp/vagrant.deb
+curl -sSL https://releases.hashicorp.com/vagrant/1.9.2/vagrant_1.9.2_x86_64.deb > /tmp/vagrant.deb
 sudo dpkg -i /tmp/vagrant.deb
 sudo apt-get -yf install
 
