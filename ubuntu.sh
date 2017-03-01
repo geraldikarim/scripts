@@ -42,10 +42,10 @@ EOF
 ## Install npm
 curl -sSL https://deb.nodesource.com/setup_6.x | sudo bash -
 sudo apt-get install -y nodejs
-/usr/bin/npm install -g gulp
-/usr/bin/npm install -g bower
-/usr/bin/npm install -g yarn
-/usr/bin/npm install -g grunt-cli
+sudo /usr/bin/npm install -g gulp
+sudo /usr/bin/npm install -g bower
+sudo /usr/bin/npm install -g yarn
+sudo /usr/bin/npm install -g grunt-cli
 
 curl --silent --location https://raw.githubusercontent.com/glenpike/npm-g_nosudo/master/npm-g-nosudo.sh | bash -
 
